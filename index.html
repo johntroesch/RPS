@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset=UTF-8>
+    </header>
+    <script>
+        let playerWins = 0;
+            let cpuWins = 0;
+            let draws = 0;
+            let rounds = 0;
+        function computerPlay() {
+            //take this out and fix
+            const items = ['ROCK', 'PAPER', 'SCISSORS'];
+            let selection = items[Math.floor(Math.random() * items.length)];
+            return selection;
+     
+
+        }
+        
+        
+        function playRound(playerSelection, computerSelection) {
+            const playerUp = playerSelection.toUpperCase();
+            if (playerUp === 'ROCK' && computerSelection === 'PAPER'){
+                cpuWins ++;
+                rounds ++;
+            return 'You lose! paper beats rock.'
+                }else if (playerUp === 'PAPER' && computerSelection === 'ROCK'){
+                    playerWins ++;
+                    rounds ++;
+                    return 'You win! paper beats rock.'
+                     
+                }else if (playerUp === 'PAPER' && computerSelection === 'SCISSORS'){
+                    cpuWins ++;
+                    rounds ++;
+                    return 'You lose! scissors beats paper.'
+                }else if (playerUp === 'SCISSORS' && computerSelection === 'PAPER'){
+                    playerWins ++;
+                    rounds ++;
+                    return 'You win! scissors beats paper.'
+                     
+                }else if (playerUp === 'SCISSORS' && computerSelection === 'ROCK'){
+                    cpuWins ++;
+                    rounds ++;
+                    return 'You lose! Rock beats scissors.'
+                     
+                }else if (playerUp === 'ROCK' && computerSelection === 'SCISSORS'){
+                    playerWins ++;
+                    rounds ++;
+                    return 'You win! Rock beats scissors.'
+                    
+                }else{
+                    rounds ++;
+                    return "it's a draw!"
+                }    
+        
+        }
+       
+        function game() {
+           for (let i = 0; i < 5; i++) {
+            let playerSelection = prompt("rock, paper, or scissors?");
+        let computerSelection = computerPlay();   
+           let play = playRound(playerSelection, computerSelection)
+           console.log(play)
+           }
+        }
+        game()
+        console.log(("player wins =" + playerWins + ", " + "computer wins=" + cpuWins))
+        
+    </script>
+</html>
